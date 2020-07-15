@@ -41,6 +41,9 @@ let stack = new Stack();
  * @constructor - ? // Артур, где тут конструктор? :D (автоматом документирует)
  */
 function isCorrectBracketSequence(str) {
+	if (!str.includes('(')) {
+		return false;
+	}
 	for (const elem of str) {
 		if (elem === ')' && stack.size === 0) {
 			return false;
@@ -56,6 +59,6 @@ function isCorrectBracketSequence(str) {
 	return stack.size === 0;
 }
 
-const str = '((((((()()()))()';
+const str = prompt('Input your string with brackets');
 
-console.log(isCorrectBracketSequence(str));
+alert(`Your brackets sequence is ${isCorrectBracketSequence(str) ? 'correct' : 'incorrect'}!`);
